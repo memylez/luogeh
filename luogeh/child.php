@@ -57,6 +57,7 @@
   $age = $_POST['age'];
   $ssn = $_POST['pssn'];
   //send to the database
+  if($cname!=''||$ssn!=''){
   $query="INSERT INTO children( cname, age, parent_ssn) VALUES ('$cname', '$age','$ssn')";
 
 if (mysqli_query($conn, $query)){
@@ -64,7 +65,8 @@ if (mysqli_query($conn, $query)){
     }
 else{ 
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  }
+  }}
+  else{echo"Please Enter name and parents_ssn";}
 }
 ?>
 </div>

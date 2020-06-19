@@ -64,6 +64,7 @@
   $budget = $_POST['budget'];
   $mssn = $_POST['mssn'];
   //send to the database
+  if($dnum!=''){
   $query="INSERT INTO department( dept_num, dept_name, budget, mgr_ssn ) VALUES ('$dnum', '$dname','$budget','$mssn')";
 
 if (mysqli_query($conn, $query)){
@@ -71,7 +72,8 @@ if (mysqli_query($conn, $query)){
     }
 else{ 
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  }
+  }}
+  else{echo "Please enter Department Number.";}
 }
 ?>
 </div>

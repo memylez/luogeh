@@ -58,11 +58,13 @@
           $salary = $_POST['sal'];
           $phone = $_POST['ph'];
           //send to the database
+          if($ssn!=''){
           $query="INSERT INTO employee( ssn, salary, phone) VALUES ('$ssn', '$salary','$phone')";
           if (mysqli_query($conn, $query)){
             echo "New employee added";}
           else{ 
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);}}
+            else{echo "Please Enter SSN";}}
       ?>
     </div>
   </div>
